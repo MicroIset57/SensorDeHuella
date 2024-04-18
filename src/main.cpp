@@ -9,12 +9,26 @@ int Power = 25;       // ROJO (+5v power) se usa como reset
 void setup()
 {
   Serial.begin(115200);
-  BioFlexInit(BioflexRX, BioflexTX, StartButton, Power);
+  // BioFlexInit(BioflexRX, BioflexTX, StartButton, Power);
+  delay(5000);
+  Serial.println("Lector de huellas iniciado.");
+
+  Serial1.begin(115200, SERIAL_8N1, BioflexRX, BioflexTX);
+
+  Serial1.println("A");
+  String res = Serial1.readStringUntil('\n');
+  Serial.println(res);
+
+  Serial1.println("R");
+  res = Serial1.readStringUntil('\n');
+  Serial.println(res);
+  res = Serial1.readStringUntil('\n');
+  Serial.println(res);
 }
 
 void loop()
 {
-  if (digitalRead(StartButton) == 0)
+  /*if (digitalRead(StartButton) == 0)
   {
     BioFlexPowerOn(true);
     digitalWrite(Power, 1); // Enciendo el BioFlex
@@ -34,5 +48,5 @@ void loop()
     {
       // espera solar el boton
     }
-  }
+  }*/
 }

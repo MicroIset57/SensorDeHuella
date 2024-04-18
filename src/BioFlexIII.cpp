@@ -108,13 +108,15 @@ void VerifyFingerprint() {}
 // Y Delete template in RAM
 // Erase the template from RAM.
 // Response <CR><LF>
-void DeleteTemplateInRAM() {}
+void DeleteTemplateInRAM()
+{
+}
 
 // 0001 to 0999 Change template identity ID.
 // Number specified a template storage slot in flash, it must be sent before command E
 // and X. Templates stored on 0001 to 0099 will identify in 1:N command “ I ”.
 // Response id=<ID><CR><LF>
-void ChangeTemplateID(int ID);
+void ChangeTemplateID(int ID) {}
 
 // E Capture and enroll into flash memory slot (ID)
 // Capture fingerprint and enroll fingerprint into flash memory where at the storage slot
